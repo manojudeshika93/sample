@@ -1,7 +1,7 @@
 import { StatusBar, TouchableOpacity } from 'react-native';
 import { hideMessage } from 'react-native-flash-message';
 
-import { tw } from '@/config/tw';
+import { tw } from '@/config/tw.config';
 
 import { CloseIcon } from '../Icon';
 import { InitialToastStyleProps, OtherInitialToastProps } from './Toast.types';

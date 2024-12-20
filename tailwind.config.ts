@@ -1,7 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 
+import tailwindUtils from './config/style.config';
 import { Colors } from './constants';
-import tailwindUtils from './config/tailwind.utils';
 
 module.exports = {
   theme: {

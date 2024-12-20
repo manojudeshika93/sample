@@ -7,7 +7,7 @@ import { IconProps, SvgProps } from './Icon.types';
 
 export function CloseIcon({
   variant = IconVariantType.BOLD,
-  color = Colors.dark.text,
+  color = Colors.light.text,
   size = 16,
 }: Readonly<IconProps>) {
   return <CloseCircle variant={variant} size={size} color={color} />;

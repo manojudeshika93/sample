@@ -35,6 +35,17 @@
           },
           "imageWidth": 250
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter-400Regular.ttf",
+            "./assets/fonts/Inter-500Medium.ttf",
+            "./assets/fonts/Inter-600SemiBold.ttf",
+            "./assets/fonts/Inter-700Bold.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {

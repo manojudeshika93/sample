@@ -1,20 +1,24 @@
-import { Tabs } from 'expo-router';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
+import { router, Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
 
-import { HapticTab, TabBarIcon } from '@/components';
+import { HapticTab, TabBarIcon, TabHeaderIcon } from '@/components';
 import { Colors } from '@/constants';
 import { useColorScheme } from '@/hooks';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const navigation = useNavigation();
 
   return (
     <Tabs
       initialRouteName='index'
       screenOptions={{
+        headerLeft: () => <TabHeaderIcon isMenu onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />,
+        headerRight: () => <TabHeaderIcon onPress={() => router.navigate('/notifications')} />,
+        headerTitle: '',
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
         tabBarButton: HapticTab,
         tabBarStyle: Platform.select({
           ios: {
