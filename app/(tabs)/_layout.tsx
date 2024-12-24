@@ -6,10 +6,12 @@ import { Platform } from 'react-native';
 import { HapticTab, TabBarIcon, TabHeaderIcon } from '@/components';
 import { Colors } from '@/constants';
 import { useColorScheme } from '@/hooks';
+import { useTranslation } from 'react-i18next';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   return (
     <Tabs
@@ -31,7 +33,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: t('home'),
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
@@ -40,7 +42,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="productsTab"
         options={{
-          title: 'Products',
+          title: t('products'),
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'grid' : 'grid-outline'} color={color} />
           ),
@@ -49,7 +51,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: t('profile'),
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'happy' : 'happy-outline'} color={color} />
           ),

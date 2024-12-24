@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
@@ -15,28 +16,30 @@ const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
 export default function HomeScreen() {
   const [isFetching, setIsFetching] = useState(true);
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     setTimeout(() => {
-      ToastService.success({ message: 'Hi, Have a nice day!!!' });
+      ToastService.success({ message: t('welcome') });
       setIsFetching(false);
     }, 1000);
   }, []);
 
-  const renderListEmpty = () => {
+  const renderListEmpty = useMemo(() => {
     return (
       <View style={tw`w-full h-45 items-center justify-center`}>
-        <Text style={tw`text-b1-semibold text-dark-general`}>No items available!!!</Text>
+        <Text style={tw`text-b1-semibold text-dark-general`}>{t('welcome')}</Text>
       </View>
     );
-  };
+  }, [t]);
 
-  const renderListHeader = () => {
+  const renderListHeader = useMemo(() => {
     return (
       <View>
         {dummyHomeTrendingData.length > 0 && (
           <View style={tw`h-45 gap-2`}>
             <View style={tw`px-5`}>
-              <Text style={tw`text-b1-bold text-dark-general`}>Treanding Products</Text>
+              <Text style={tw`text-b1-bold text-dark-general`}>{t('treanding')}</Text>
             </View>
             <FlatList
               data={dummyHomeTrendingData}
@@ -62,11 +65,11 @@ export default function HomeScreen() {
           </View>
         )}
         <View style={tw`px-5 pb-3`}>
-          <Text style={tw`text-b1-bold text-dark-general`}>Popular Categories</Text>
+          <Text style={tw`text-b1-bold text-dark-general`}>{t('popular')}</Text>
         </View>
       </View>
     );
-  };
+  }, [isFetching, renderListEmpty, t]);
 
   return (
     <SafeAreaView style={tw`flex-1 items-center`}>

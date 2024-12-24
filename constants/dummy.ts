@@ -1,3 +1,5 @@
+import { Notification } from '@/models';
+
 interface ImageData {
   id: number;
   url: string;
@@ -36,4 +38,37 @@ export const dummyHomePopularData = [
   { id: '5', name: 'Category 5', itemCount: '8', image: 'https://via.placeholder.com/50' },
   { id: '6', name: 'Category 6', itemCount: '5', image: 'https://via.placeholder.com/50' },
   { id: '7', name: 'Category 7', itemCount: '80', image: 'https://via.placeholder.com/50' },
+];
+
+export const dummyNotifications: Notification[] = [
+  {
+    id: '1',
+    title: 'Welcome to the App!',
+    body: 'We are excited to have you on board. Start exploring the app today!',
+    isRead: false,
+  },
+  // {
+  //   id: '2',
+  //   title: 'Update Available',
+  //   body: 'A new version of the app is available. Update now for the latest features.',
+  //   isRead: true,
+  // },
+  // {
+  //   id: '3',
+  //   title: 'Special Offer!',
+  //   body: 'Don’t miss our special offer. Enjoy 50% off premium plans.',
+  //   isRead: false,
+  // },
+  // {
+  //   id: '4',
+  //   title: 'Account Security',
+  //   body: 'Your account password was changed successfully.',
+  //   isRead: true,
+  // },
+  // {
+  //   id: '5',
+  //   title: 'Feedback Request',
+  //   body: 'Let us know how we are doing by completing a short survey.',
+  //   isRead: false,
+  // },
 ];
