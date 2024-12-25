@@ -36,8 +36,20 @@ export default function HomeScreen() {
   const renderListHeader = useMemo(() => {
     return (
       <View>
+        <Swiper
+          autoplay
+          width={SCREEN_WIDTH}
+          height={240}
+          paginationStyle={tw`mx-10`}
+          activeDotColor={Colors.status.error}>
+          {dummyHomeSwiperData.map((item, index) => {
+            return (
+              <Image key={item.id + index} source={{ uri: item.url }} style={tw`w-full h-50`} contentFit="cover" />
+            );
+          })}
+        </Swiper>
         {dummyHomeTrendingData.length > 0 && (
-          <View style={tw`h-45 gap-2`}>
+          <View style={tw`h-45 gap-2 shadow-xl shadow-status-success`}>
             <View style={tw`px-5`}>
               <Text style={tw`text-b1-bold text-dark-general`}>{t('treanding')}</Text>
             </View>
@@ -72,48 +84,33 @@ export default function HomeScreen() {
   }, [isFetching, renderListEmpty, t]);
 
   return (
-    <SafeAreaView style={tw`flex-1 items-center`}>
-      <View style={tw`flex-1 items-center w-full gap-5`}>
-        <View style={tw`h-55`}>
-          <Swiper
-            autoplay
-            width={SCREEN_WIDTH}
-            paginationStyle={tw`p-0 items-end mx-5 overflow-hidden`}
-            activeDotColor={Colors.status.error}>
-            {dummyHomeSwiperData.map((item, index) => {
-              return (
-                <Image key={item.id + index} source={{ uri: item.url }} style={tw`w-full h-55`} contentFit="cover" />
-              );
-            })}
-          </Swiper>
-        </View>
-        {dummyHomePopularData.length > 0 && (
-          <View style={tw`items-center gap-2 mb-60`}>
-            <FlatList
-              data={dummyHomePopularData}
-              keyExtractor={item => item.id}
-              showsVerticalScrollIndicator={false}
-              nestedScrollEnabled={true}
-              keyboardShouldPersistTaps="handled"
-              renderItem={({ item }) => (
-                <View style={tw`w-full flex-row px-5 my-2  items-center justify-between shadow-xl`}>
-                  {isFetching ? (
-                    <ShimmerPlaceholder style={tw`w-20 h-20 rounded-full`} />
-                  ) : (
-                    <Image source={{ uri: item.image }} style={tw`w-20 h-20 rounded-full`} />
-                  )}
-                  <View style={tw`justify-center`}>
-                    <Text style={tw`text-b2-semibold text-dark-general`}>{item.name}</Text>
-                    <Text style={tw`text-h3-semibold text-status-info text-right`}>{item.itemCount}</Text>
-                  </View>
+    <SafeAreaView style={tw`flex-1 mt--10`}>
+      {dummyHomePopularData.length > 0 && (
+        <View style={tw`items-center gap-2 pb-12`}>
+          <FlatList
+            data={dummyHomePopularData}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+            nestedScrollEnabled={true}
+            keyboardShouldPersistTaps="handled"
+            renderItem={({ item }) => (
+              <View style={tw`flex-row p-3 my-2 mx-5 items-center justify-between rounded-2xl border border-dark-icon bg-light-general`}>
+                {isFetching ? (
+                  <ShimmerPlaceholder style={tw`w-15 h-15 rounded-full`} />
+                ) : (
+                  <Image source={{ uri: item.image }} style={tw`w-15 h-15 rounded-full`} />
+                )}
+                <View style={tw`justify-center`}>
+                  <Text style={tw`text-b2-semibold text-dark-general`}>{item.name}</Text>
+                  <Text style={tw`text-h3-semibold text-status-info text-right`}>{item.itemCount}</Text>
                 </View>
-              )}
-              ListHeaderComponent={renderListHeader}
-              ListEmptyComponent={renderListEmpty}
-            />
-          </View>
-        )}
-      </View>
+              </View>
+            )}
+            ListHeaderComponent={renderListHeader}
+            ListEmptyComponent={renderListEmpty}
+          />
+        </View>
+      )}
     </SafeAreaView>
   );
 }

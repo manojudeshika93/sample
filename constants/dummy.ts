@@ -47,28 +47,28 @@ export const dummyNotifications: Notification[] = [
     body: 'We are excited to have you on board. Start exploring the app today!',
     isRead: false,
   },
-  // {
-  //   id: '2',
-  //   title: 'Update Available',
-  //   body: 'A new version of the app is available. Update now for the latest features.',
-  //   isRead: true,
-  // },
-  // {
-  //   id: '3',
-  //   title: 'Special Offer!',
-  //   body: 'Don’t miss our special offer. Enjoy 50% off premium plans.',
-  //   isRead: false,
-  // },
-  // {
-  //   id: '4',
-  //   title: 'Account Security',
-  //   body: 'Your account password was changed successfully.',
-  //   isRead: true,
-  // },
-  // {
-  //   id: '5',
-  //   title: 'Feedback Request',
-  //   body: 'Let us know how we are doing by completing a short survey.',
-  //   isRead: false,
-  // },
+  {
+    id: '2',
+    title: 'Update Available',
+    body: 'A new version of the app is available. Update now for the latest features.',
+    isRead: true,
+  },
+  {
+    id: '3',
+    title: 'Special Offer!',
+    body: 'Don’t miss our special offer. Enjoy 50% off premium plans.',
+    isRead: false,
+  },
+  {
+    id: '4',
+    title: 'Account Security',
+    body: 'Your account password was changed successfully.',
+    isRead: true,
+  },
+  {
+    id: '5',
+    title: 'Feedback Request',
+    body: 'Let us know how we are doing by completing a short survey.',
+    isRead: true,
+  },
 ];

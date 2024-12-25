@@ -14,11 +14,11 @@ export default function ProductsScreen() {
   const sheetRef = useRef<RNBottomSheet>(null);
 
   return (
-    <SafeAreaView style={tw`flex-1 items-center justify-center`}>
-      <View style={tw`flex-1`}>
+    <SafeAreaView style={tw`flex-1 mt--10 gap-10`}>
+      <View style={tw`w-full px-5 items-center`}>
         <Text style={tw`text-h1-regular text-status-info`}>{t('products')}</Text>
       </View>
-      <View style={tw`w-full pb-5 px-5`}>
+      <View style={tw`w-full px-5`}>
         <Button title={t('openSheet')} onPress={() => sheetRef.current?.expand()} />
       </View>
       <Portal>

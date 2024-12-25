@@ -8,7 +8,7 @@ export default function InfoScreen() {
   const { t } = useTranslation();
 
   return (
-    <SafeAreaView style={tw`flex-1 items-center justify-center`}>
+    <SafeAreaView style={tw`flex-1 mt--10`}>
       <Text style={tw`text-h1-regular text-status-info`}>{t('info')}</Text>
     </SafeAreaView>
   );

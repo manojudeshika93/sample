@@ -16,7 +16,7 @@ export const BottomSheet = forwardRef<GorhomBottomSheet, BottomSheetProps>(funct
     () => (
       <View style={tw`flex-row mt-2 mb-6 items-center justify-between`}>
         <Text style={tw`text-b1-semibold text-light-text`}>{title}</Text>
-        <TouchableOpacity style={{ transform: [{ rotate: '45deg' }] }} onPress={handleSheetClose}>
+        <TouchableOpacity onPress={handleSheetClose}>
           <CloseIcon />
         </TouchableOpacity>
       </View>

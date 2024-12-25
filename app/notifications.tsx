@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlatList, Text, View } from 'react-native';
 import {
@@ -13,6 +13,7 @@ import { dummyNotifications } from '@/constants';
 import { ToastService } from '@/services';
 
 export default function NotificationsScreen() {
+  const [selectedID, setSelectedID] = useState<string>('');
   configureReanimatedLogger({
     level: ReanimatedLogLevel.warn,
     strict: true,
@@ -31,7 +32,7 @@ export default function NotificationsScreen() {
   }, [t]);
 
   return (
-    <SafeAreaView style={tw`flex-1 items-center justify-center`}>
+    <SafeAreaView style={tw`flex-1 mt--10`}>
       <FlatList
         data={dummyNotifications}
         keyExtractor={item => item.id}
@@ -39,7 +40,8 @@ export default function NotificationsScreen() {
         renderItem={({ item }) => (
           <NotificationCard
             item={item}
-            onPress={() => ToastService.warning({ message: 'Notification clicked' })}
+            selectedID={selectedID}
+            onPress={() => setSelectedID(item.id)}
             onRemove={() => ToastService.warning({ message: 'Notification romeve clicked' })}
             threshold={108}
           />

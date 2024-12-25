@@ -7,15 +7,16 @@ import { TabBarIcon } from './TabBarIcon';
 
 type TabHeaderIconProps = {
   onPress: () => void;
-  isMenu?: boolean;
 };
 
-export function TabHeaderIcon({ onPress, isMenu = false }: Readonly<TabHeaderIconProps>) {
+export function TabHeaderIcon({ onPress }: Readonly<TabHeaderIconProps>) {
   return (
     <Pressable style={tw`p-3`} onPress={onPress}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    >
       <TabBarIcon
-        name={isMenu ? 'menu' : 'notifications'}
+        name="notifications"
         color={Colors.dark.general}
+        style={tw`mb-0`}
+        size={21}
       />
     </Pressable>
   );

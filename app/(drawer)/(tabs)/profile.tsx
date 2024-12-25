@@ -11,8 +11,8 @@ export default function ProfileScreen() {
   const { t } = useTranslation();
 
   return (
-    <SafeAreaView style={tw`flex-1 items-center justify-center`}>
-      <View style={tw`flex-1 items-center mt-5`}>
+    <SafeAreaView style={tw`flex-1 mt--10`}>
+      <View style={tw`flex-1 items-center w-full`}>
         <Text style={tw`text-h1-regular text-status-info`}>{t('profile')}</Text>
       </View>
       <View style={tw`w-full flex-row items-center justify-between mt-5 px-5`}>

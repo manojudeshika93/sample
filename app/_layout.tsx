@@ -10,13 +10,17 @@ import { useEffect } from 'react';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import { useColorScheme } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ReanimatedLogLevel, configureReanimatedLogger } from 'react-native-reanimated';
 
 import { ToastHost } from '@/components';
 import { i18n, tw } from '@/config';
+import { Colors } from '@/constants';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-
+configureReanimatedLogger({
+  level: ReanimatedLogLevel.warn,
+  strict: true,
+});
 export default function RootLayout() {
   SplashScreen.hideAsync();
 
@@ -47,11 +51,23 @@ export default function RootLayout() {
             <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
               <ToastHost />
               <Stack>
-                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                <Stack.Screen name="notifications" options={{ headerTitle: t('notifications') }} />
-                <Stack.Screen name="info" options={{ headerTitle: t('info') }} />
-                <Stack.Screen name="terms" options={{ headerTitle: t('terms') }} />
-                <Stack.Screen name="+not-found" />
+                <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+                <Stack.Screen
+                  name="notifications"
+                  options={{
+                    headerBackButtonDisplayMode: 'minimal',
+                    headerTitle: t('notifications'),
+                    headerTintColor: Colors.dark.general,
+                  }}
+                />
+                <Stack.Screen
+                  name="+not-found"
+                  options={{
+                    headerBackButtonDisplayMode: 'minimal',
+                    headerTitle: t('notFound'),
+                    headerTintColor: Colors.dark.general,
+                  }}
+                />
               </Stack>
               <StatusBar style="auto" />
             </ThemeProvider>
