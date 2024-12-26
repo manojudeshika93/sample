@@ -10,8 +10,7 @@ export default function NotFoundScreen() {
 
   return (
     <SafeAreaView style={tw`flex-1 mt--10`}>
-      <Stack.Screen options={{ title: t('terms') }} />
+      <Stack.Screen options={{ title: t('notFound') }} />
     </SafeAreaView>
   );
 }
-

@@ -2,7 +2,7 @@ import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, I18nManager, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
 import Swiper from 'react-native-swiper';
@@ -94,7 +94,11 @@ export default function HomeScreen() {
             nestedScrollEnabled={true}
             keyboardShouldPersistTaps="handled"
             renderItem={({ item }) => (
-              <View style={tw`flex-row p-3 my-2 mx-5 items-center justify-between rounded-2xl border border-dark-icon bg-light-general`}>
+              <View
+                style={tw.style(
+                  `flex-row p-3 my-2 mx-5 items-center justify-between rounded-2xl border border-dark-icon bg-light-general shadow-xl`,
+                  I18nManager.isRTL && `flex-reverse-row`,
+                )}>
                 {isFetching ? (
                   <ShimmerPlaceholder style={tw`w-15 h-15 rounded-full`} />
                 ) : (
@@ -102,7 +106,10 @@ export default function HomeScreen() {
                 )}
                 <View style={tw`justify-center`}>
                   <Text style={tw`text-b2-semibold text-dark-general`}>{item.name}</Text>
-                  <Text style={tw`text-h3-semibold text-status-info text-right`}>{item.itemCount}</Text>
+                  <Text
+                    style={tw.style(`text-h3-semibold text-status-info text-right`, I18nManager.isRTL && 'text-left')}>
+                    {item.itemCount}
+                  </Text>
                 </View>
               </View>
             )}

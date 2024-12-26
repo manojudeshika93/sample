@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import { Pressable, Text, TouchableOpacity, View } from 'react-native';
-import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
+import Swipeable, { SwipeableMethods } from 'react-native-gesture-handler/ReanimatedSwipeable';
 
 import { tw } from '@/config';
 import { Notification } from '@/models';
-
 
 interface NotificationCardProps {
   item: Notification;
@@ -15,14 +14,22 @@ interface NotificationCardProps {
   onSwipeStart?: () => void;
 }
 
-export function NotificationCard({
-  item,
-  selectedID,
-  onPress,
-  onRemove,
-  threshold = 100,
-  onSwipeStart,
-}: Readonly<NotificationCardProps>) {
+export interface NotificationCardRef {
+  closeSwipeable: () => void;
+}
+
+export const NotificationCard = forwardRef<NotificationCardRef, NotificationCardProps>(function NotificationCard(
+  { item, selectedID, onPress, onRemove, threshold = 100, onSwipeStart }: NotificationCardProps,
+  ref,
+) {
+  const swipeableRef = useRef<SwipeableMethods>(null);
+
+  useImperativeHandle(ref, () => ({
+    closeSwipeable: () => {
+      swipeableRef.current?.close();
+    },
+  }));
+
   const renderRightActions = () => (
     <TouchableOpacity
       activeOpacity={0.7}
@@ -34,17 +41,23 @@ export function NotificationCard({
 
   return (
     <Swipeable
+      ref={swipeableRef}
       renderRightActions={renderRightActions}
       overshootFriction={8}
       rightThreshold={threshold}
       onSwipeableWillOpen={onSwipeStart}>
-      <Pressable style={tw`w-full justify-center bg-light-general px-4 py-4 border-b border-light-icon`} onPress={onPress}>
+      <Pressable
+        style={tw`w-full justify-center bg-light-general px-4 py-4 border-b border-light-icon`}
+        onPress={onPress}>
         <Text style={tw`text-b1-medium text-dark-general`}>{item.title}</Text>
-        <Text style={tw`text-b2-regular text-dark-icon`} numberOfLines={selectedID === item.id ? 2 : 1} ellipsizeMode="tail">
+        <Text
+          style={tw`text-b2-regular text-dark-icon`}
+          numberOfLines={selectedID === item.id ? 2 : 1}
+          ellipsizeMode="tail">
           {item.body}
         </Text>
         {!item.isRead ? <View style={tw`absolute top-6 right-4 w-2 h-2 rounded-full bg-status-success`} /> : null}
       </Pressable>
     </Swipeable>
   );
-}
+});

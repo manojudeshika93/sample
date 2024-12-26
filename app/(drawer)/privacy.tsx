@@ -1,16 +1,17 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { tw } from '@/config';
 
-export default function TermsScreen() {
+export default function PrivacyScreen() {
   const { t } = useTranslation();
 
   return (
     <SafeAreaView style={tw`flex-1 mt--10`}>
       <ScrollView contentContainerStyle={tw`p-4`}>
-        <Text style={tw`text-h1-semibold text-light-tint mb-4`}>{t('terms')}</Text>
+        <Text style={tw`text-h1-semibold text-light-tint mb-4`}>{t('privacy')}</Text>
 
         <Text style={tw`text-b1-regular text-dark-general mb-4`}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante

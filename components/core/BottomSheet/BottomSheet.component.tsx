@@ -1,6 +1,6 @@
 import GorhomBottomSheet, { BottomSheetBackdrop, BottomSheetView } from '@gorhom/bottom-sheet';
 import React, { forwardRef, useMemo } from 'react';
-import { Platform, Text, TouchableOpacity, View } from 'react-native';
+import { I18nManager, Platform, Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { tw } from '@/config';
@@ -14,7 +14,8 @@ export const BottomSheet = forwardRef<GorhomBottomSheet, BottomSheetProps>(funct
 ) {
   const modalHeader = useMemo(
     () => (
-      <View style={tw`flex-row mt-2 mb-6 items-center justify-between`}>
+      <View
+        style={tw.style(`flex-row mt-2 mb-6 items-center justify-between`, I18nManager.isRTL && `flex-reverse-row`)}>
         <Text style={tw`text-b1-semibold text-light-text`}>{title}</Text>
         <TouchableOpacity onPress={handleSheetClose}>
           <CloseIcon />

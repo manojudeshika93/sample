@@ -15,6 +15,7 @@ import { ReanimatedLogLevel, configureReanimatedLogger } from 'react-native-rean
 import { ToastHost } from '@/components';
 import { i18n, tw } from '@/config';
 import { Colors } from '@/constants';
+import { useAuthStore } from '@/store';
 
 SplashScreen.preventAutoHideAsync();
 configureReanimatedLogger({
@@ -26,12 +27,22 @@ export default function RootLayout() {
 
   const { t } = useTranslation();
   const colorScheme = useColorScheme();
+  const { lng } = useAuthStore();
+
   let [fontsLoaded] = useFonts({
     Inter_400Regular: require('../assets/fonts/Inter_400Regular.ttf'),
     Inter_500Medium: require('../assets/fonts/Inter_500Medium.ttf'),
     Inter_600SemiBold: require('../assets/fonts/Inter_600SemiBold.ttf'),
     Inter_700Bold: require('../assets/fonts/Inter_700Bold.ttf'),
   });
+
+  useEffect(() => {
+    if (lng === 'ar') {
+      i18n.changeLanguage('ar');
+    } else {
+      i18n.changeLanguage('en');
+    }
+  }, [lng]);
 
   useEffect(() => {
     if (fontsLoaded) {
