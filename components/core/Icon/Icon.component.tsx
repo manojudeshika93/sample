@@ -1,8 +1,9 @@
-import { CloseCircle } from 'iconsax-react-native';
+import { CloseCircle, Heart } from 'iconsax-react-native';
 import React from 'react';
 
 import { BeautySvg } from '@/assets';
 import { Colors, IconVariantType, SCREEN_HEIGHT, SCREEN_WIDTH } from '@/constants';
+
 import { IconProps, SvgProps } from './Icon.types';
 
 export function CloseIcon({
@@ -19,4 +20,12 @@ export function DetailedLogo({
   height = SCREEN_HEIGHT * 0.05,
 }: Readonly<SvgProps>) {
   return <BeautySvg fill={color} width={width} height={height} />;
+}
+
+export function WishlistIcon({
+  variant = IconVariantType.BOLD,
+  color = Colors.status.error,
+  size = 20,
+}: Readonly<IconProps>) {
+  return <Heart variant={variant} size={size} color={color} />;
 }

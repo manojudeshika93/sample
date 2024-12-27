@@ -151,7 +151,7 @@ export default function HomeScreen() {
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={tw.style(
-                  `flex-row p-3 my-2 mx-5 items-center justify-between rounded-2xl border border-dark-icon bg-light-general shadow-xl`,
+                  `flex-row p-3 my-2 mx-5 items-center justify-between rounded-2xl border border-dark-icon bg-light-general shadow-xl shadow-light-tint`,
                   I18nManager.isRTL && `flex-reverse-row`,
                 )}>
                 {isFetching ? (

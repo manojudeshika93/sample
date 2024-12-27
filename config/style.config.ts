@@ -5,6 +5,8 @@ const textLevels = [
   { level: 'b1', fontSize: 16, lineHeight: 24 },
   { level: 'b2', fontSize: 14, lineHeight: 22 },
   { level: 'b3', fontSize: 12, lineHeight: 20 },
+  { level: 'b4', fontSize: 10, lineHeight: 18 },
+  { level: 'b5', fontSize: 8, lineHeight: 15 },
 ];
 
 const fontFamilies = {

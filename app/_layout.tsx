@@ -72,6 +72,14 @@ export default function RootLayout() {
                   }}
                 />
                 <Stack.Screen
+                  name="productDetails"
+                  options={{
+                    headerBackButtonDisplayMode: 'minimal',
+                    headerTitle: t('productDetails'),
+                    headerTintColor: Colors.dark.general,
+                  }}
+                />
+                <Stack.Screen
                   name="+not-found"
                   options={{
                     headerBackButtonDisplayMode: 'minimal',

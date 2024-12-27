@@ -1,11 +1,11 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
 
 import { HapticTab, TabBarIcon } from '@/components';
 import { Colors } from '@/constants';
 import { useColorScheme } from '@/hooks';
-import { useTranslation } from 'react-i18next';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -13,7 +13,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      initialRouteName='index'
+      initialRouteName="index"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -31,27 +31,21 @@ export default function TabLayout() {
         name="index"
         options={{
           title: t('home'),
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="productsTab"
+        name="products"
         options={{
           title: t('products'),
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'grid' : 'grid-outline'} color={color} />
-          ),
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? 'grid' : 'grid-outline'} color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: t('profile'),
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'happy' : 'happy-outline'} color={color} />
-          ),
+          tabBarIcon: ({ color, focused }) => <TabBarIcon name={focused ? 'happy' : 'happy-outline'} color={color} />,
         }}
       />
     </Tabs>
