@@ -20,24 +20,68 @@ export const dummyHomeSwiperData: ImageData[] = [
 ];
 
 export const dummyHomeTrendingData = [
-  { id: '1', name: 'Item 1', price: '$10', image: 'https://via.placeholder.com/50' },
-  { id: '2', name: 'Item 2', price: '$20', image: 'https://via.placeholder.com/50' },
-  { id: '3', name: 'Item 3', price: '$30', image: 'https://via.placeholder.com/50' },
-  { id: '4', name: 'Item 4', price: '$40', image: 'https://via.placeholder.com/50' },
-  { id: '5', name: 'Item 5', price: '$10', image: 'https://via.placeholder.com/50' },
-  { id: '6', name: 'Item 6', price: '$20', image: 'https://via.placeholder.com/50' },
-  { id: '7', name: 'Item 7', price: '$30', image: 'https://via.placeholder.com/50' },
-  { id: '8', name: 'Item 8', price: '$40', image: 'https://via.placeholder.com/50' },
+  {
+    id: '1',
+    name: 'Dr Renaud',
+    price: 'AED 10.00',
+    isNew: true,
+    image:
+      'https://nazih.ae/media/catalog/product/1/2/12130140.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '2',
+    name: 'Artistic Nail Design',
+    price: 'AED 20.00',
+    isNew: true,
+    image:
+      'https://nazih.ae/media/catalog/product/1/6/16640143040.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '3',
+    name: 'Macadamia Natural',
+    price: 'AED 30.00',
+    isNew: false,
+    image:
+      'https://nazih.ae/media/catalog/product/3/9/3933006-3.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '4',
+    name: 'Ravlon Professional',
+    price: 'AED 40.00',
+    isNew: false,
+    image:
+      'https://nazih.ae/media/catalog/product/1/6/16470467.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '5',
+    name: 'Paul Michella',
+    price: 'AED 10.00',
+    isNew: false,
+    image:
+      'https://nazih.ae/media/catalog/product/1/7/17770310002.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '6',
+    name: 'GHD',
+    price: 'AED 20.00',
+    isNew: false,
+    image:
+      'https://nazih.ae/media/catalog/product/1/2/12570140_1.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
 ];
 
 export const dummyHomePopularData = [
-  { id: '1', name: 'Category 1', itemCount: '10', image: 'https://via.placeholder.com/50' },
-  { id: '2', name: 'Category 2', itemCount: '80', image: 'https://via.placeholder.com/50' },
-  { id: '3', name: 'Category 3', itemCount: '20', image: 'https://via.placeholder.com/50' },
-  { id: '4', name: 'Category 4', itemCount: '35', image: 'https://via.placeholder.com/50' },
-  { id: '5', name: 'Category 5', itemCount: '8', image: 'https://via.placeholder.com/50' },
-  { id: '6', name: 'Category 6', itemCount: '5', image: 'https://via.placeholder.com/50' },
-  { id: '7', name: 'Category 7', itemCount: '80', image: 'https://via.placeholder.com/50' },
+  { id: '1', name: 'Haircare', itemCount: '10', image: 'https://nazih.ae/media/deal/image/hair-care_2.jpg' },
+  { id: '2', name: 'Skincare', itemCount: '20', image: 'https://nazih.ae/media/deal/image/skin-care_2.jpg' },
+  { id: '3', name: 'Makeup', itemCount: '25', image: 'https://nazih.ae/media/deal/image/makeup_14.jpg' },
+  { id: '4', name: 'Fragrance', itemCount: '40', image: 'https://nazih.ae/media/deal/image/fragrance_8.jpg' },
+  { id: '5', name: 'Nail Care', itemCount: '10', image: 'https://nazih.ae/media/deal/image/nail-care.jpg' },
+  {
+    id: '6',
+    name: 'Hair Electricals',
+    itemCount: '20',
+    image: 'https://nazih.ae/media/deal/image/hair-electricals.jpg',
+  },
 ];
 
 export const dummyNotifications: Notification[] = [
