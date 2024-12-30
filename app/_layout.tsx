@@ -64,6 +64,14 @@ export default function RootLayout() {
               <Stack>
                 <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
                 <Stack.Screen
+                  name="cart"
+                  options={{
+                    headerBackButtonDisplayMode: 'minimal',
+                    headerTitle: t('cart'),
+                    headerTintColor: Colors.dark.general,
+                  }}
+                />
+                <Stack.Screen
                   name="notifications"
                   options={{
                     headerBackButtonDisplayMode: 'minimal',
@@ -76,6 +84,14 @@ export default function RootLayout() {
                   options={{
                     headerBackButtonDisplayMode: 'minimal',
                     headerTitle: t('productDetails'),
+                    headerTintColor: Colors.dark.general,
+                  }}
+                />
+                <Stack.Screen
+                  name="wishlist"
+                  options={{
+                    headerBackButtonDisplayMode: 'minimal',
+                    headerTitle: t('wishlist'),
                     headerTintColor: Colors.dark.general,
                   }}
                 />

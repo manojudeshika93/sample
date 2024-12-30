@@ -16,6 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
 import Swiper from 'react-native-swiper';
 
+import { ListEmpty } from '@/components';
 import { tw } from '@/config';
 import { Colors, SCREEN_WIDTH, dummyHomePopularData, dummyHomeSwiperData, dummyHomeTrendingData } from '@/constants';
 import { ToastService } from '@/services';
@@ -61,14 +62,6 @@ export default function HomeScreen() {
     );
   }, [scrollX, contentWidth, layoutWidth]);
 
-  const renderListEmpty = useMemo(() => {
-    return (
-      <View style={tw`w-full h-45 items-center justify-center`}>
-        <Text style={tw`text-b1-semibold text-dark-general`}>{t('welcome')}</Text>
-      </View>
-    );
-  }, [t]);
-
   const renderListHeader = useMemo(() => {
     return (
       <View>
@@ -106,7 +99,7 @@ export default function HomeScreen() {
                 <TouchableOpacity style={tw`w-30`}>
                   {item.isNew && (
                     <View style={tw`absolute top-0 right-0`}>
-                      <Text style={tw`text-b3-bold text-status-error`}>NEW</Text>
+                      <Text style={tw`text-b3-bold text-status-error`}>{t('new')}</Text>
                     </View>
                   )}
                   <View style={tw`items-center m-2 bg-general-transparent`}>
@@ -126,7 +119,7 @@ export default function HomeScreen() {
                   </View>
                 </TouchableOpacity>
               )}
-              ListEmptyComponent={renderListEmpty}
+              ListEmptyComponent={<ListEmpty />}
             />
             <View style={tw`mt-2 px-4`}>{renderCustomIndicator}</View>
           </View>
@@ -136,7 +129,7 @@ export default function HomeScreen() {
         </View>
       </View>
     );
-  }, [isFetching, renderListEmpty, t, renderCustomIndicator]);
+  }, [isFetching, t, renderCustomIndicator]);
 
   return (
     <SafeAreaView style={tw`flex-1 mt--10`}>
@@ -168,7 +161,7 @@ export default function HomeScreen() {
               </TouchableOpacity>
             )}
             ListHeaderComponent={renderListHeader}
-            ListEmptyComponent={renderListEmpty}
+            ListEmptyComponent={<ListEmpty />}
           />
         </View>
       )}

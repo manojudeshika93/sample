@@ -1,4 +1,4 @@
-import { CloseCircle, Heart } from 'iconsax-react-native';
+import { Bag, CloseCircle, Heart } from 'iconsax-react-native';
 import React from 'react';
 
 import { BeautySvg } from '@/assets';
@@ -28,4 +28,12 @@ export function WishlistIcon({
   size = 20,
 }: Readonly<IconProps>) {
   return <Heart variant={variant} size={size} color={color} />;
+}
+
+export function DeleteIcon({
+  variant = IconVariantType.BOLD,
+  color = Colors.dark.icon,
+  size = 20,
+}: Readonly<IconProps>) {
+  return <Bag variant={variant} size={size} color={color} />;
 }

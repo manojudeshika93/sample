@@ -5,7 +5,7 @@ import { Drawer } from 'expo-router/drawer';
 import { useTranslation } from 'react-i18next';
 
 import { Images } from '@/assets';
-import { CustomDrawerContent, TabBarIcon, TabHeaderIcon } from '@/components';
+import { CustomDrawerContent, TabBarIcon, TabHeaderRight } from '@/components';
 import { tw } from '@/config';
 import { Colors } from '@/constants';
 
@@ -23,7 +23,13 @@ export default function DrawerLayout() {
         drawerActiveBackgroundColor: Colors.light.tint,
         drawerHideStatusBarOnOpen: true,
         headerLeft: () => <DrawerToggleButton tintColor={Colors.dark.general} />,
-        headerRight: () => <TabHeaderIcon onPress={() => router.navigate('/notifications')} />,
+        headerRight: () => (
+          <TabHeaderRight
+            onWishlistPress={() => router.navigate('/wishlist')}
+            onCartPress={() => router.navigate('/cart')}
+            onNotifyPress={() => router.navigate('/notifications')}
+          />
+        ),
         headerTitle: () => <Image source={Images.groupLogo} style={{ width: 100, height: 30 }} />,
       }}>
       <Drawer.Screen

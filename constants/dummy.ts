@@ -207,3 +207,29 @@ export const dummyProductData: Products[] = [
     ],
   },
 ];
+
+export const dummyCartData = [
+  {
+    id: '1',
+    name: 'Ravlon Professional',
+    price: 10,
+    image:
+      'https://nazih.ae/media/catalog/product/1/6/16470467.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '2',
+    name: 'Artistic Nail Design',
+    price: 20,
+    isNew: true,
+    image:
+      'https://nazih.ae/media/catalog/product/1/6/16640143040.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+  {
+    id: '3',
+    name: 'Macadamia Natural',
+    price: 30,
+    isNew: false,
+    image:
+      'https://nazih.ae/media/catalog/product/3/9/3933006-3.jpg?width=400&height=400&canvas=400:400&optimize=medium&bg-color=255,255,255&fit=bounds',
+  },
+];
